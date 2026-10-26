@@ -30,10 +30,10 @@ class SankeGame:
         self.foodpoints = 0 , 0
         self.randomFoodLocation()
         
-        self.snakeHead = cv2.imread('snakehead.png', cv2.IMREAD_UNCHANGED)
+        self.snakeHead = cv2.imread('images/snakehead.png', cv2.IMREAD_UNCHANGED)
         self.snakeHead = cv2.resize(self.snakeHead, (70, 70))
 
-        self.snakeBody = cv2.imread('snake-body5.png', cv2.IMREAD_UNCHANGED)
+        self.snakeBody = cv2.imread('images/snake-body5.png', cv2.IMREAD_UNCHANGED)
         self.snakeBody = cv2.resize(self.snakeBody, (20, 20))
 
     def randomFoodLocation(self): 
@@ -88,7 +88,7 @@ class SankeGame:
                 cv2.rectangle(imgMain, (300, 300), (700, 400), (255, 255, 255), cv2.FILLED)
                 cv2.rectangle(imgMain, (300, 300), (700, 400), (0, 0, 0), 3)
                 cv2.putText(imgMain, "Game Over", (330, 365), cv2.FONT_HERSHEY_SIMPLEX, 1.3, (0, 0, 255), 3)
-                pygame.mixer.music.load("laugh.mp3")
+                pygame.mixer.music.load("sounds/laugh.mp3")
                 pygame.mixer.music.play()
                 cv2.imshow("Snake Game AI", imgMain)
                 cv2.waitKey(3000)
@@ -102,7 +102,7 @@ class SankeGame:
 
         return imgMain
 
-game = SankeGame('rat.png')
+game = SankeGame('images/rat.png')
 while True:
     success , img = cap.read()
     img = cv2.flip(img,1)
